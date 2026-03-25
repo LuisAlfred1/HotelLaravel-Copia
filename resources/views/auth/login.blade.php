@@ -3,7 +3,7 @@
 @section('content')
     <style>
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #90a9fd 0%, #c19ce6 100%);
             min-height: 100vh;
             font-family: 'Inter', sans-serif;
         }
@@ -24,8 +24,14 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             overflow: hidden;
             width: 100%;
-            max-width: 450px;
+            max-width: 850px;
+            /* más ancho para las dos columnas */
             animation: slideUp 0.6s ease-out;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            /* ← aquí el cambio clave */
+            grid-template-rows: unset;
+            /* quitar el row anterior */
         }
 
         .login-header {
@@ -34,19 +40,13 @@
             text-align: center;
             padding: 3rem 2rem 2rem;
             position: relative;
-        }
 
-        .login-header::before {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
-            border-radius: 50%;
-            border: 4px solid rgba(255, 255, 255, 0.95);
+            /* ← centrado */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100%;
         }
 
         .logo-container {
@@ -199,6 +199,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -209,6 +210,7 @@
             from {
                 transform: translate(-50%, -50%) rotate(0deg);
             }
+
             to {
                 transform: translate(-50%, -50%) rotate(360deg);
             }
@@ -249,15 +251,23 @@
         }
 
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0px) rotate(0deg);
             }
+
             50% {
                 transform: translateY(-20px) rotate(10deg);
             }
         }
 
         @media (max-width: 768px) {
+            .login-card {
+                grid-template-columns: 1fr;
+                /* vuelve a una columna en móvil */
+            }
+
             .login-container {
                 padding: 1rem;
             }
@@ -300,8 +310,7 @@
 
                     <div class="form-floating">
                         <input type="email" id="email" name="email"
-                            class="form-control @error('email') is-invalid @enderror"
-                            placeholder="Enter your email"
+                            class="form-control @error('email') is-invalid @enderror" placeholder="Enter your email"
                             value="{{ old('email') }}" required autofocus>
                         <label for="email">
                             <i class="fas fa-envelope me-2"></i>Email Address
@@ -315,8 +324,8 @@
 
                     <div class="form-floating">
                         <input type="password" id="password" name="password"
-                            class="form-control @error('password') is-invalid @enderror"
-                            placeholder="Enter your password" required>
+                            class="form-control @error('password') is-invalid @enderror" placeholder="Enter your password"
+                            required>
                         <label for="password">
                             <i class="fas fa-lock me-2"></i>Password
                         </label>
