@@ -36,6 +36,13 @@ CREATE DATABASE hotel_app;
 EXIT;
 ```
 
+> **Using XAMPP?** You can also create the database visually:
+> 1. Open **XAMPP** and make sure **Apache** and **MySQL** are running ✅
+> 2. Open your browser and go to **http://localhost/phpmyadmin**
+> 3. Click on **"New"** (left panel)
+> 4. Enter the name: `hotel_app`
+> 5. Click **"Create"** ✅
+
 ### Installation Steps
 
 1. **Clone & Configure**
