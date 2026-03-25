@@ -3,7 +3,7 @@
 @section('content')
     <style>
         body {
-            background: linear-gradient(135deg, #90a9fd 0%, #c19ce6 100%);
+            background: linear-gradient(135deg, #839dfd 0%, #4e6fe9 100%);
             min-height: 100vh;
             font-family: 'Inter', sans-serif;
         }
@@ -21,10 +21,9 @@
             backdrop-filter: blur(20px);
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
             overflow: hidden;
             width: 100%;
-            max-width: 850px;
+            max-width: 1000px;
             /* más ancho para las dos columnas */
             animation: slideUp 0.6s ease-out;
             display: grid;
